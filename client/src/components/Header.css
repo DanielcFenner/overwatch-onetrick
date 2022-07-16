@@ -9,6 +9,10 @@ header {
   padding: 1.5rem;
 }
 
+header h5 {
+  font-weight: 700;
+}
+
 nav {
   display: flex;
   gap: 2rem;
