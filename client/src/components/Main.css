@@ -1,8 +1,15 @@
 main {
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
   padding: 1rem;
+}
+
+.mainContainer {
+  width: min(100%, 1200px);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -23,13 +30,19 @@ main span {
   aspect-ratio: 1;
   width: 100%;
   border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   object-fit: cover;
 }
 
 .choice {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  cursor: pointer;
+}
+
+.choice:hover {
+  filter: brightness(1.2) contrast(1.2);
 }
 
 .choice button {
@@ -39,8 +52,10 @@ main span {
   font-size: 0.9rem;
   padding: 1rem;
   border: none;
-  color: var(--blue12);
+  color: var(--blue1);
   border-radius: 0.5rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   font-weight: 700;
   cursor: pointer;
 }
