@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 // check which theme user prefers
 const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
