@@ -32,3 +32,8 @@ body {
   width: min(1200px, 100%);
   padding: 0rem 1rem;
 }
+
+.noise::after {
+  background-image: url("./assets/noise.svg");
+  background-repeat: repeat;
+}
