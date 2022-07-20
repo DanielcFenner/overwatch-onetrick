@@ -1,0 +1,33 @@
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0rem;
+  width: var(--width);
+}
+
+.resultsGrid {
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.resultCard {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--blue3);
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.resultCard img {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  aspect-ratio: 1;
+  height: 4rem;
+}
+
+.resultCardRank {
+  font-size: 1.5rem;
+  margin-left: auto;
+  padding: 1rem;
+}

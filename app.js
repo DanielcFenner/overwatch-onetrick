@@ -24,6 +24,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(express.static(path.join(__dirname, "client/dist")));
+app.use("/images", express.static(__dirname + "/images"));
 app.use(cors(corsOptions));
 app.use(compression());
 app.use(helmet());

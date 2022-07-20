@@ -16,6 +16,7 @@ function App() {
   return (
     <div class="appWrapper">
       <Header />
+
       <Routes>
         <Route path="/" component={Main} />
         <Route path="/results" component={Results} />
