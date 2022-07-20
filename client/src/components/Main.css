@@ -9,7 +9,7 @@ main {
 }
 
 .mainContainer {
-  width: min(100%, 1200px);
+  width: var(--width);
   display: flex;
   flex-direction: column;
   gap: 1rem;

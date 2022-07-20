@@ -6,8 +6,8 @@ function Header() {
       <div class="headerContainer">
         <h5>OW1TRICK</h5>
         <nav>
-          <a href="https://ow1trick.com">Home</a>
-          <a href="https://ow1trick.com/about">Results</a>
+          <a href="/">Home</a>
+          <a href="/results">Results</a>
         </nav>
       </div>
     </header>

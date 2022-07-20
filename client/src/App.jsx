@@ -2,6 +2,8 @@ import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import Results from "./components/Results";
+import { Route, Routes } from "solid-app-router";
 
 // check which theme user prefers
 const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -14,7 +16,10 @@ function App() {
   return (
     <div class="appWrapper">
       <Header />
-      <Main />
+      <Routes>
+        <Route path="/" component={Main} />
+        <Route path="/results" component={Results} />
+      </Routes>
       <Footer />
     </div>
   );
