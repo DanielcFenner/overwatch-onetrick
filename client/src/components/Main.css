@@ -63,7 +63,7 @@ main span {
 .yourVotes {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .yourVote {
@@ -79,6 +79,9 @@ main span {
 }
 
 .yourVoteVote {
+  font-size: 1.25rem;
+  width: 35px;
+  text-align: center;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 0.5rem;
   position: absolute;

@@ -138,15 +138,13 @@ function Main() {
           </h5>
           <div class="yourVotes">
             <For each={votesSortedAndTrimmed()}>
-              {(hero) => (
+              {(hero, i) => (
                 <div class="yourVote">
                   <img
                     src={`${hostURL}${hero.imageurl}`}
                     alt={hero.name}
                   />
-                  <div class="yourVoteVote">
-                    {hero.votes} vote{hero.votes > 1 && "s"}
-                  </div>
+                  <div class="yourVoteVote">{i() + 1}</div>
                 </div>
               )}
             </For>
