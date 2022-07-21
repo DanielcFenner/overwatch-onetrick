@@ -4,7 +4,9 @@ function Header() {
   return (
     <header>
       <div class="headerContainer">
-        <h5>OW1TRICK</h5>
+        <a href="/">
+          <h5>OW1TRICK</h5>
+        </a>
         <nav>
           <a href="/">Home</a>
           <a href="/results">Results</a>

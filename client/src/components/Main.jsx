@@ -22,6 +22,8 @@ const fetchHeroes = async () => {
 };
 
 function Main() {
+  const [votesSortedAndTrimmed, setVotesSortedAndtrimmed] =
+    createSignal([]);
   const [localVotes, setLocalVotes] = createSignal([]);
   const [heroes, setHeroes] = createSignal([]);
   const [heroesResource] = createResource(fetchHeroes);
@@ -32,8 +34,12 @@ function Main() {
     if (heroesResource()) {
       newHeroes(heroesResource());
       setLocalVotes(heroesResource());
-      console.log(heroesResource());
     }
+  });
+
+  createEffect(() => {
+    localVotes();
+    sortAndTrimVotes();
   });
 
   function newHeroes(heroList) {
@@ -60,7 +66,6 @@ function Main() {
         }
         return hero;
       });
-      console.log(newVotes);
       return newVotes;
     });
 
@@ -72,6 +77,19 @@ function Main() {
     });
     const data = await response.json();
     console.log(data);
+  }
+
+  function sortAndTrimVotes() {
+    const newVotes = [...localVotes()];
+    // filter all elements that have votes of 0
+    const filteredVotes = newVotes.filter((hero) => hero.votes > 0);
+    // sort filteredVotes by votes
+    const sortedVotes = filteredVotes.sort(
+      (a, b) => b.votes - a.votes
+    );
+    // trim sortedVotes to top 4
+    const trimmedVotes = sortedVotes.slice(0, 4);
+    setVotesSortedAndtrimmed(trimmedVotes);
   }
 
   function handleChoice(heroId) {
@@ -110,6 +128,26 @@ function Main() {
               />
               <button>{heroes()[1].name}</button>
             </div>
+          </div>
+        </Show>
+        <Show when={votesSortedAndTrimmed() !== []}>
+          <h5>
+            Your top <span>one tricks</span>
+          </h5>
+          <div class="yourVotes">
+            <For each={votesSortedAndTrimmed()}>
+              {(hero) => (
+                <div class="yourVote">
+                  <img
+                    src={`${hostURL}${hero.imageurl}`}
+                    alt={hero.name}
+                  />
+                  <div class="yourVoteVote">
+                    {hero.votes} vote{hero.votes > 1 && "s"}
+                  </div>
+                </div>
+              )}
+            </For>
           </div>
         </Show>
       </div>

@@ -20,7 +20,7 @@ function Results() {
       localStorage.getItem("heroes") === null ||
       localStorage.getItem("heroes") === "undefined"
     ) {
-      return [];
+      return false;
     } else {
       const heroes = JSON.parse(localStorage.getItem("heroes"));
       return heroes.sort((a, b) => b.votes - a.votes);
@@ -28,8 +28,6 @@ function Results() {
   }
 
   const hostURL = "/images";
-
-  console.log(localVotes());
 
   return (
     <main>
@@ -79,18 +77,30 @@ function Results() {
                 </TabPanel>
                 <TabPanel value="Local">
                   <div class="resultsGrid">
-                    <For each={localVotes()}>
-                      {(result, i) => (
-                        <div class="resultCard" style={`--i:${i()}`}>
-                          <img src={`${hostURL}${result.imageurl}`} />
-                          <div class="resultCardText">
-                            <h6>{result.name}</h6>
-                            <p>Votes: {result.votes}</p>
+                    <Show
+                      when={localVotes()}
+                      fallback={<h5>You haven't voted yet</h5>}
+                    >
+                      <For each={localVotes()}>
+                        {(result, i) => (
+                          <div
+                            class="resultCard"
+                            style={`--i:${i()}`}
+                          >
+                            <img
+                              src={`${hostURL}${result.imageurl}`}
+                            />
+                            <div class="resultCardText">
+                              <h6>{result.name}</h6>
+                              <p>Votes: {result.votes}</p>
+                            </div>
+                            <div class="resultCardRank">
+                              {i() + 1}
+                            </div>
                           </div>
-                          <div class="resultCardRank">{i() + 1}</div>
-                        </div>
-                      )}
-                    </For>
+                        )}
+                      </For>
+                    </Show>
                   </div>
                 </TabPanel>
               </div>

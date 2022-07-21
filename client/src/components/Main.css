@@ -59,3 +59,32 @@ main span {
   font-weight: 700;
   cursor: pointer;
 }
+
+.yourVotes {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.yourVote {
+  aspect-ratio: 1;
+  position: relative;
+  border-radius: 0.5rem;
+  animation: slide-top 0.5s ease-in-out;
+}
+
+.yourVote img {
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.yourVoteVote {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  backdrop-filter: blur(20px);
+  border-bottom-right-radius: 0.4rem;
+  border-top-left-radius: 0.5rem;
+}
