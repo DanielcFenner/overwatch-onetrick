@@ -8,7 +8,7 @@ const fetchHeroes = async () => {
     localStorage.getItem("heroes") === null ||
     localStorage.getItem("heroes") === "undefined"
   ) {
-    const response = await fetch(`http://localhost:3001/api`);
+    const response = await fetch(`/api`);
     // loop through response and set each hero's votes to 0
     let heroes = await response.json();
     heroes.forEach((hero) => {
