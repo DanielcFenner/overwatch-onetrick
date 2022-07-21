@@ -52,7 +52,7 @@ main span {
   font-size: 0.9rem;
   padding: 1rem;
   border: none;
-  color: var(--blue1);
+  color: var(--white);
   border-radius: 0.5rem;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
