@@ -25,7 +25,7 @@ mongoose
 
 app.use(express.static(path.join(__dirname, "client/dist")));
 app.use("/images", express.static(__dirname + "/images"));
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(compression());
 app.use(helmet());
 app.use("/api", apiRouter);

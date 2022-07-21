@@ -3,11 +3,26 @@ import { createResource, createSignal, createEffect } from "solid-js";
 
 // fetch heroes from api
 const fetchHeroes = async () => {
-  const response = await fetch(`http://localhost:3001/api`);
-  return response.json();
+  // if local storage is empty, fetch heroes from api
+  if (
+    localStorage.getItem("heroes") === null ||
+    localStorage.getItem("heroes") === "undefined"
+  ) {
+    const response = await fetch(`http://localhost:3001/api`);
+    // loop through response and set each hero's votes to 0
+    let heroes = await response.json();
+    heroes.forEach((hero) => {
+      hero.votes = 0;
+    });
+    return heroes;
+  } else {
+    // if local storage is not empty, return heroes from local storage
+    return JSON.parse(localStorage.getItem("heroes"));
+  }
 };
 
 function Main() {
+  const [localVotes, setLocalVotes] = createSignal([]);
   const [heroes, setHeroes] = createSignal([]);
   const [heroesResource] = createResource(fetchHeroes);
 
@@ -16,6 +31,8 @@ function Main() {
   createEffect(() => {
     if (heroesResource()) {
       newHeroes(heroesResource());
+      setLocalVotes(heroesResource());
+      console.log(heroesResource());
     }
   });
 
@@ -35,6 +52,21 @@ function Main() {
   }
 
   async function updateVote(heroId) {
+    // increment hero IDs vote by 1
+    setLocalVotes((localVotes) => {
+      const newVotes = localVotes.map((hero) => {
+        if (hero._id === heroId) {
+          hero.votes++;
+        }
+        return hero;
+      });
+      console.log(newVotes);
+      return newVotes;
+    });
+
+    // add localVotes to local storage
+    localStorage.setItem("heroes", JSON.stringify(localVotes()));
+
     const response = await fetch(
       `http://localhost:3001/api/${heroId}`,
       {
