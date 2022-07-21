@@ -89,6 +89,8 @@ function Main() {
     );
     // trim sortedVotes to top 4
     const trimmedVotes = sortedVotes.slice(0, 4);
+
+    console.log(trimmedVotes);
     setVotesSortedAndtrimmed(trimmedVotes);
   }
 
@@ -132,7 +134,7 @@ function Main() {
         </Show>
         <Show when={votesSortedAndTrimmed() !== []}>
           <h5>
-            Your top <span>one tricks</span>
+            Your favourite <span>one tricks</span>
           </h5>
           <div class="yourVotes">
             <For each={votesSortedAndTrimmed()}>
