@@ -26,7 +26,7 @@ function Main() {
   const [heroes, setHeroes] = createSignal([]);
   const [heroesResource] = createResource(fetchHeroes);
 
-  const hostURL = "http://localhost:3001/images";
+  const hostURL = "/images";
 
   createEffect(() => {
     if (heroesResource()) {
@@ -67,12 +67,9 @@ function Main() {
     // add localVotes to local storage
     localStorage.setItem("heroes", JSON.stringify(localVotes()));
 
-    const response = await fetch(
-      `http://localhost:3001/api/${heroId}`,
-      {
-        method: "PATCH",
-      }
-    );
+    const response = await fetch(`/api/${heroId}`, {
+      method: "PATCH",
+    });
     const data = await response.json();
     console.log(data);
   }

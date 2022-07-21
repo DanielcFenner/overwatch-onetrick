@@ -4,7 +4,7 @@ import "./Results.css";
 
 // fetch vote results from api
 const fetchResults = async () => {
-  const response = await fetch(`http://localhost:3001/api/results`);
+  const response = await fetch(`/api/results`);
   return response.json();
 };
 
@@ -27,7 +27,7 @@ function Results() {
     }
   }
 
-  const hostURL = "http://localhost:3001/images";
+  const hostURL = "/images";
 
   console.log(localVotes());
 
