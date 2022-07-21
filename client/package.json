@@ -17,6 +17,8 @@
     "@radix-ui/colors": "^0.1.8",
     "solid-app-router": "^0.4.1",
     "solid-headless": "^0.12.2",
-    "solid-js": "^1.4.7"
+    "solid-js": "^1.4.7",
+    "vite": "^3.0.0",
+    "vite-plugin-solid": "^2.3.0"
   }
 }
