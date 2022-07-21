@@ -23,8 +23,19 @@ const addVote = (req, res) => {
   });
 };
 
+const resetAll = (req, res) => {
+  Hero.find().then((data) => {
+    data.forEach((hero) => {
+      hero.votes = 0;
+      hero.save();
+    });
+    res.json(data);
+  });
+};
+
 module.exports = {
   getHome,
   addVote,
   getResults,
+  resetAll,
 };

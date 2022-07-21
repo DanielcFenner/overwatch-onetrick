@@ -66,7 +66,7 @@ function Main() {
               <img
                 class="image"
                 src={`${hostURL}${heroes()[0].imageurl}`}
-                alt="Trick 1"
+                alt={`Picture of ${heroes()[0].name} from Overwatch`}
               />
               <button>{heroes()[0].name}</button>
             </div>
@@ -77,7 +77,7 @@ function Main() {
               <img
                 class="image"
                 src={`${hostURL}${heroes()[1].imageurl}`}
-                alt="Trick 1"
+                alt={`Picture of ${heroes()[1].name} from Overwatch`}
               />
               <button>{heroes()[1].name}</button>
             </div>
