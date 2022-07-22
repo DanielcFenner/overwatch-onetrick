@@ -34,9 +34,21 @@ const resetAll = (req, res) => {
   });
 };
 
+const imageUrl = (req, res) => {
+  // change imageurl of every Hero element to .webp
+  Hero.find().then((data) => {
+    data.forEach((hero) => {
+      hero.imageurl = hero.imageurl.replace(".avif", ".webp");
+      hero.save();
+    });
+    res.json(data);
+  });
+};
+
 module.exports = {
   getHome,
   addVote,
   getResults,
   resetAll,
+  imageUrl,
 };
