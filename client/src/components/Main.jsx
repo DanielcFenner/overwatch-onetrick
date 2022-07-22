@@ -132,7 +132,7 @@ function Main() {
             </div>
           </div>
         </Show>
-        <Show when={votesSortedAndTrimmed() !== []}>
+        <Show when={votesSortedAndTrimmed()[0] !== undefined}>
           <h5>
             Your favourite <span>one tricks</span>
           </h5>
