@@ -24,6 +24,7 @@ const addVote = (req, res) => {
 };
 
 const resetAll = (req, res) => {
+  // reset all votes to 0
   Hero.find().then((data) => {
     data.forEach((hero) => {
       hero.votes = 0;
